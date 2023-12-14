@@ -8,6 +8,10 @@ html, body {
   overflow-x: hidden;
 }
 
+#body{
+  background-color: aqua;
+}
+
 * {
   margin: 0;
 }
@@ -26,12 +30,14 @@ html, body {
 #text{
   font-size: 1.75em;
   font-weight: 500;
+  color: aqua;
 }
 
 #author{
   text-align: end;
   font-size: 1em;
   margin-top: 20px;
+  color: aqua;
 }
 
 #links{
@@ -44,12 +50,19 @@ html, body {
   padding: 8px 18px 6px 18px;
   font-size: 0.85em;
   border: none;
-  background-color: red;
   color: white;
   cursor: pointer;
   border-radius: 3px;
+  background-color: aqua;
 }
 
 #tweet-quote{
   text-decoration: none;
+  padding: 10px 10px 7px 10px;
+  border-radius: 4px;
+  background-color: aqua;
+}
+
+#logo{
+  width: 20px;
 }

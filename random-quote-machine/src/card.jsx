@@ -1,4 +1,6 @@
 import quotes from "./assets/quotes.json";
+import logoWhite from "./assets/images/logo-white.png"
+import React, { useEffect } from "react";
 function Card(){
     function changeColor(){
         const randomColor = () => {
@@ -17,6 +19,26 @@ function Card(){
         );
     }
 
+    function changeText() {
+        let newQuote = "";
+        let newAuthor = "";
+        const makeNewQuote = () => {
+            const randomNum = Math.floor(Math.random() * quotes.length);
+            newQuote = quotes[randomNum].quote
+            newAuthor = quotes[randomNum].author
+        }
+        makeNewQuote();
+        document.getElementById("text").textContent = newQuote,
+        document.getElementById("author").textContent = newAuthor
+    }
+
+    function handleTweet() {
+        const tweetText = encodeURIComponent(`"${document.getElementById("text").textContent}" - ${document.getElementById("author").textContent}`);
+        const tweetUrl = `https://twitter.com/intent/tweet?text=${tweetText}`;
+        window.open(tweetUrl, '_blank');
+      }
+    
+
     function handleClick(){
         changeColor();
         changeText();
@@ -24,10 +46,10 @@ function Card(){
 
     return(
         <section id="quote-box">
-            <h1 id="text">abcdefghigjlmnopqrstuvwxyztd</h1>
-            <p id="author"> Confucius</p>
+            <h1 id="text">Life isn’t about getting and having, it’s about giving and being.</h1>
+            <p id="author">Kevin Kruse</p>
             <nav id="links">
-                <a href="twitter.com/intent/tweet" id="tweet-quote">  </a>
+                <a href="twitter.com/intent/tweet" id="tweet-quote" onClick={handleTweet}><img src={logoWhite} alt="" id="logo"/> </a>
                 <button id="new-quote" onClick={handleClick}>New quote</button>
             </nav>
         </section>
